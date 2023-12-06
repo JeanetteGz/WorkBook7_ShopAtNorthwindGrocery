@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+</head>
+<body>
+    <h1>Product</h1>
+    <div id="productDetails"></div>
+
+    <script>
+        window.onload = () => {
+            let queryValues = location.search.substring(1).split("&");
+            let productId = queryValues[0].split("=")[1];
+            
+            // Fetch product details by this id
+            fetchProductDetails(productId);
+        }
+
+        async function fetchProductDetails(productId) {
+            try {
+                const response = await fetch(`/api/product?id=${productId}`);
+                const productDetails = await response.json();
+                
+                // Update the page with these details
+                updatePage(productDetails);
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+            }
+        }
+
+        function updatePage(productDetails) {
+            const productDetailsContainer = document.getElementById('productDetails');
+            productDetailsContainer.innerHTML = `
+                <h2>${productDetails.name}</h2>
+                <p>${productDetails.description}</p>
+                <p>Price: $${productDetails.price}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
