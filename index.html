@@ -1,61 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="/styles/index.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
-
-<body class="d-flex flex-column justify-content-center align-items-center">
-    <nav class="navbar bg-body navbar-expand-lg">
-        <div class="container text-center">
-            <a class="navbar-brand" href="#">Northwind Grocery</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="bi-list p-3"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/products.html">Products</a>
-                    </li>
-                </ul>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only"></span></a>
+                <a class="nav-item nav-link" href="product.html">Product</a>
+                <a class="nav-item nav-link" href="products.html">Products</a>
             </div>
         </div>
     </nav>
 
-    <main class="container-fluid pt-5 text-center">
-        <div class="col-12 col-sm-5 col-md-4 col-lg-4 mx-auto">
-            <h1>Northwind Grocery</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.</p>
-            <a class="btn btn-dark" href="/products.html" role="button">Search Products</a>
-        </div>
-        <div class="col rounded-4 overflow-hidden p-0 my-auto text" style="max-height: 500px;"></div>
-    </main>
+    <h1 class="text-center">Welcome to Northwind Groceries</h1>
 
-    <section class="container-fluid pt-5 bg-white text-black mt-5 pb-5 px-0 shadow text-center">
-        <div class="w-75 mx-auto py-5">
-            <h2>Welcome to Northwind Grocery.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, recusandae dolores quos voluptas culpa
-                rerum! In hic, amet omnis ad nobis velit, explicabo ratione facilis eaque obcaecati dicta, vel illum.
-            </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum feugiat ullamcorper. Morbi eget varius sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec quis cursus leo. Duis id commodo nisl. Vivamus viverra, risus vel posuere elementum, dolor metus sollicitudin neque, a convallis nulla nulla vel augue. Curabitur eget dapibus nulla. Nunc ut consequat eros, ut vestibulum arcu. Cras fermentum, est nec vulputate fringilla, diam urna tempor massa, in egestas mi libero vel felis. Sed eget congue ex. Donec sem ipsum, pellentesque a tincidunt in, euismod sit amet massa.
+    </p>
 
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, illum perspiciatis voluptates quo
-                placeat expedita iusto enim iure iste maxime sunt voluptatibus culpa sequi quaerat necessitatibus
-                impedit explicabo quas ex.</p>
-        </div>
-    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,61 +1,42 @@
-// productDetails.js
+let mainDropdownSelect = document.getElementById("searchOption");
+let categoryDropdownOptions = document.getElementById("category");
+let productsList = document.getElementById("results");
 
-// Get the product ID from the URL
-const productId = new URLSearchParams(window.location.search).get('productId');
+mainDropdownSelect.addEventListener("change", () => {
+    if (mainDropdownSelect.value === "searchByCategory") {
+        fetch("http://localhost:8081/api/categories")
+            .then((res) => res.json())
+            .then((allCategories) => {
+                categoryDropdownOptions.innerHTML = ''; // Clear previous options
+                for (let category of allCategories) {
+                    var optionElement = document.createElement("option");
+                    optionElement.textContent = category.name;
+                    optionElement.value = category.categoryId;
+                    categoryDropdownOptions.appendChild(optionElement);
+                }
+            })
+    }
+    if (mainDropdownSelect.value === "viewAll") {
+        fetch("http://localhost:8081/api/products")
+            .then((res) => res.json())
+            .then((allProducts) => {
+                productsList.innerHTML = ' ';
+                for (let product of allProducts) {
+                    productsList.innerHTML += `${product.productName} <a href="${product.productId}">${product.productName}</a><br>`;
+                }
+            });
+    }
+});
 
-// Check if productId is present; otherwise, redirect to the home page
-if (!productId) {
-    window.location.href = 'index.html';
-}
-
-// Fetch product details based on productId
-fetch(`http://localhost:8081/api/products/${productId}`)
-    .then(response => response.json())
-    .then(product => {
-        const productDetailsContainer = document.querySelector(".product-details-container");
-
-        // Create and append elements for each property
-        for (const [key, value] of Object.entries(product)) {
-            const propertyDiv = document.createElement("div");
-            propertyDiv.classList.add("product-item");
-
-            const propertyNameSpan = createSpan("property-name", `${key}:`);
-            const propertyValueSpan = createSpan("property-value", formatPropertyValue(key, value));
-
-            propertyDiv.appendChild(propertyNameSpan);
-            propertyDiv.appendChild(propertyValueSpan);
-
-            productDetailsContainer.appendChild(propertyDiv);
-        }
-
-        // Add a link to go back to the home page
-        const detailsLink = document.createElement("div");
-        detailsLink.classList.add("details-link");
-
-        const homeLink = createLink("index.html", "Back to Home");
-
-        detailsLink.appendChild(homeLink);
-        productDetailsContainer.appendChild(detailsLink);
-    })
-    .catch(error => console.error("Error fetching product details:", error));
-
-// Helper function to create a span element with a class and text content
-function createSpan(className, textContent) {
-    const span = document.createElement("span");
-    span.classList.add(className);
-    span.textContent = textContent;
-    return span;
-}
-
-// Helper function to create a link element with an href and text content
-function createLink(href, textContent) {
-    const link = document.createElement("a");
-    link.href = href;
-    link.textContent = textContent;
-    return link;
-}
-
-// Helper function to format property values
-function formatPropertyValue(key, value) {
-    return (key === "unitPrice") ? `$${parseFloat(value).toFixed(2)}` : value;
-}
+categoryDropdownOptions.addEventListener("change", () => {
+    let selectedCategory = categoryDropdownOptions.value;
+    fetch("http://localhost:8081/api/products")
+        .then((res) => res.json())
+        .then((allProducts) => {
+            let products = allProducts.filter(val => val.categoryId == selectedCategory);
+            productsList.innerHTML = ' ';
+            for (let product of products) {
+                productsList.innerHTML += `${product.productName} <br>`;
+            }
+        });
+});
