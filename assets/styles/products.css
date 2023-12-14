@@ -1,15 +1,7 @@
-body {
-    background-image: url('/assets/images/healthy-vegetables-wooden-table.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 main {
     flex: 1;
+}
+h1 {
+    color: aliceblue;
 }

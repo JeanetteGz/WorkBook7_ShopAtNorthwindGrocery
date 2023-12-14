@@ -49,7 +49,6 @@ let viewAll = () => {
         }
     }
 
-
     selectSpecificEl.onchange = () => {
         outputEl.innerHTML = '';
         
